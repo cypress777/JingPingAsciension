@@ -3,85 +3,88 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
-memory = []
+users = {}
 
-form = '''<!DOCTYPE html>
+fail_form = '''<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"
-  <meta name="viewport" contnet="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible content="ie=edge">
-  <title>Ascention</title>
-  <style>
-    label, input, button {{
-      margin: 8px;
-    }}
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Login Fail</title>
 </head>
 
 <body>
-  <form method="POST">
-    <h2>Ascention Login</h2>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
-    <br>
-    <label for="pw">Password:</label>
-    <input type="password" name="pw" id="pw">
-    <br>
-    <button type=submit id="login">Log in</button>
-    <button type=submit id="signup">sign up</button>
-    <param name="islogin" value="true">
-  </form>
-
-  <script type="test/javascript">
-  document.getElementById("login").onclick = fuction() {loginFunction()};
-  document.getElementById("signup").onclick = function() {signupFunction()};
-
-  function loginFunction() {{
-    document.getElementById("login").innerHTML = "log in ...";
-  }}
-
-  function signupFunction() {{
-    document.getElementById("signup").innerHTML = "sign up...";
-    document.getElementById("islogin").innerText = "false";
-  }}
-  </script>
-  <pre>
-{}
-  </pre>
+ <form method="GET">
+  <h2>Sorry</h2>
+  <br>
+  <button type="submit">Return</button>
+ </form>
 </body>
+
+<pre>
+{}
+</pre>
+</html>
+'''
+
+success_form = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Welcome</title>
+</head>
+
+<body>
+ <h2>Welcome</h2>
+</body>
+<pre>
+{}
+</pre>
 </html>
 '''
 
 class IndexHandler(BaseHTTPRequestHandler):
   def do_GET(self):
-    self.send_response(200)
-
-    self.send_header('Content-type', 'text/html; charset=utf-8')
+    self.send_response(303)
+    self.send_header('Location', 'http://voidcypherplay.com:80')
     self.end_headers()
-
-    msg = form.format("\n".join(memory))
-    self.wfile.write(msg.encode())
 
   def do_POST(self):
     length = int(self.headers.get('Content-length', 0))
 
     data = self.rfile.read(length).decode()
 
-    message = parse_qs(data)["username"][0]
+    print(data)
 
-    message = message.replace("<", "&lt;")
+    username = parse_qs(data)["username"][0]
 
-    if len(memory) == 0:
-      memory.append("Welcome new comers:\n")
+    password = parse_qs(data)["pw"][0]
 
-    memory.append(message)
-    
-    self.send_response(303)
-    self.send_header('Location', '/')
+    is_login = parse_qs(data)["islogin"][0]
+
+    send_form = success_form
+
+    if is_login == 'true':
+      if username not in users:
+        send_form = fail_form.format("user not exist")
+      elif password != users[username]:
+        send_form = fail_form.format("wrong password")
+      else:
+        send_form = success_form.format(username)
+    else:
+      if username in users:
+        send_form = fail_form.format("user existed, please try another")
+      else:
+        users.update({username:password})
+        send_form = success_form.format(username)
+
+    self.send_response(200)
+    self.send_header('Content-type', 'text/html')
     self.end_headers()
+    self.wfile.write(send_form.encode())
 
 if __name__ == '__main__':
-  server_addr = ('', 80)
+  server_addr = ('', 8000)
   httpd = HTTPServer(server_addr, IndexHandler)
   httpd.serve_forever()
