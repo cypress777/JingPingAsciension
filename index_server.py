@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import os
+import threading
+from socketserver import ThreadingMixIn
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
@@ -84,7 +87,10 @@ class IndexHandler(BaseHTTPRequestHandler):
     self.end_headers()
     self.wfile.write(send_form.encode())
 
+class ThreadHTTPServer(ThreadingMixIn, HTTPServer):
+  pass
+
 if __name__ == '__main__':
   server_addr = ('', 8000)
-  httpd = HTTPServer(server_addr, IndexHandler)
+  httpd = ThreadHTTPServer(server_addr, IndexHandler)
   httpd.serve_forever()
