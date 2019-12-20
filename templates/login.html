@@ -12,19 +12,27 @@
     </style>
 </head>
 <body>
-    <form action="http://voidcypherplay.com:8000/login" method="POST">
+    <form action='{{url_for('Login')}}' method="POST">
         <h2>Ascension Login</h2>
         <label for="username">Username:</label>
         <input type="text" name="username" id="username">
         <br>
-        <label for="pw">Password:</label>
-        <input type="password" name="pw" id="pw">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
         <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+          <strong>{{message}}</strong>
+          {% endfor %}
+        <br>
+        {% endif %}
+        {% endwith %}
         <button type=submit>Log in</button>
-        <br>
-        <br>
-        <p>Not a member?</p>
-        <button onclick="window.location.href='{{url_for('signup')}}';">Sign up</button>
     </form>
+    <br>
+    <br>
+    <label for="signup">Not a member?</label>
+    <button type="button" name="signup" onclick="window.location.href='{{url_for('Signup')}}';">Sign up</button>
 </body>
 </html>

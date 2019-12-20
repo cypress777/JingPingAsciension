@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Asscension Login</title>
+    <title>Asscension Signup</title>
     <style>
         label, input, button {
             margin: 8px;
@@ -12,19 +12,28 @@
     </style>
 </head>
 <body>
-    <form action="http://voidcypherplay.com:8000/signup" method="POST">
-        <h2>Ascension Login</h2>
+    <form action='{{url_for('Signup')}}' method="POST">
+        <h2>Ascension Signup</h2>
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username">
         <br>
-        <label for="pw">Password:</label>
-        <input type="password" name="pw" id="pw">
+        <label for="password">Password:</label>
+        <input type="password" name="password">
         <br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+          <strong>{{message}}</strong>
+          {% endfor %}
+        <br>
+        {% endif %}
+        {% endwith %}
+
         <button type=submit>Sign up</button>
-        <br>
-        <br>
-        <p>Back to Log In</p>
-        <button onclick="window.location.href='{{url_for('login')}}';">Log in</button>
     </form>
+    <br>
+    <br>
+    <label for="login">Back to Login</label>
+    <button type="button" name="login" onclick="window.location.href='{{url_for('Login')}}';">Log in</button>
 </body>
 </html>
