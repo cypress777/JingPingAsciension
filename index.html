@@ -12,31 +12,8 @@
     </style>
 </head>
 <body>
-    <form action="http://voidcypherplay.com:8000" method="POST">
-        <h2>Ascension Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="pw">Password:</label>
-        <input type="password" name="pw" id="pw">
-        <br>
-        <input type="hidden" name="islogin" id="islogin" value="true">
-        <button type=submit id="login">Log in</button>
-        <button type=submit id="signup">Sign up</button>
-    </form>
-
-    <script>
-    document.getElementById("login").onclick = function() {loginFunction()};
-    document.getElementById("signup").onclick = function() {signupFunction()};
-
-    function loginFunction() {
-      document.getElementById("login").innerHTML = "log in...";
-    }
-
-    function signupFunction() {
-      document.getElementById("islogin").value = "false";
-      document.getElementById("signup").innerHTML = "sign up...";
-    }
-    </script>
+    <h2>Welcome to Ascension</h2>
+    <br>
+    <button onclick="window.location.href='http://voidcypherplay.com:8000\login';" id="login">Log In / Sign Up</button>
 </body>
 </html>

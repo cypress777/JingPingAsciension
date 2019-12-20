@@ -7,11 +7,10 @@ fail_form = '''<!DOCTYPE html>
 </head>
 
 <body>
- <form method='GET'>
-  <h2>Sorry</h2>
-  <br>
-  <button type='submit'>Return</button>
- </form>
+ <h2>Sorry</h2>
+ <br>
+ <button onclick="window.location.href='http://voidcypherplay.com:8000/login'">Return</button>
+ <button onclick="window.location.href='http://voidcypherplay.com:80'">Home</button>
 </body>
 
 <pre>
@@ -30,9 +29,8 @@ login_form = '''<!DOCTYPE html>
 
 <body>
  <h2>Welcome Back</h2>
- <form method='GET'>
-  <button type='submit'>Return</button>
- </form>
+ <br>
+ <button onclick="window.location.href='http://voidcypherplay.com:80'">Home</button>
 </body>
 <pre>
 {}

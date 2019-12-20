@@ -26,13 +26,25 @@ class IndexHandler(BaseHTTPRequestHandler):
   global DatabaseSession, ErrorCodes
 
   def do_GET(self):
+    debugLogger(self.path)
     try:
-      self.send_response(303)
-      self.send_header('Location', 'http://voidcypherplay.com:80')
-      self.end_headers()
+      if self.path.endswith('/'):
+        self.send_response(303)
+        self.send_header('Location', 'http://voidcypherplay.com:80')
+        self.end_headers()
+      elif self.path.endswith('/login'):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+  
+        f = open(os.curdir + os.sep + 'login.html')
+        self.wfile.write(f.read().encode())
+        f.close()
+      else:
+        self.send_error(404, ErrorCodes[404])
     except IOError:
       self.send_error(404, ErrorCodes[404])
-   
+ 
   def do_POST(self):
     try:
       length = int(self.headers.get('Content-length', 0))
