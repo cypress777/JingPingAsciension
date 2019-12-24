@@ -17,21 +17,18 @@
 </head>
 <body id='hello_body'>
     <header class='main_header'>
-        <div class='hello_info'>
-            <h1 class='banner'>Welcome to Ascension</h1>
-            <button class='signin_button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
-        </div>
+        <div class='banner'>Welcome to Ascension</div>
+        <button class='signin_button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
     </header>
-    <div class='header_placeholder'></div>
     <div class='content'>
         <div class='content_background'>
             <img src='{{ url_for('static', filename='cherryblossom.jpg') }}'>
         </div>
         <div class='content_intro'>
-            <h1 id='rule'>Rule</h1>
+            <div class='title' id='rule'>Rule</div>
         </div>
+        <footer class='main_footer'>
+        </footer>
     </div>
-    <footer class='main_footer'>
-    </footer>
 </body>
 </html>

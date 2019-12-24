@@ -1,2 +1,4 @@
 *.png
 *.jpg
+*.db
+__pycache__
