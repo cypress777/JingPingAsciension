@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel=icon href="{{ url_for('static', filename='icon.png') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='hello.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='common.css') }}">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Asscension Welcome</title>
+    <title>Asscension Hello</title>
     <style>
         label, input, button {
             margin: 8px;
@@ -12,8 +16,18 @@
     </style>
 </head>
 <body>
-    <h2>Welcome to Ascension</h2>
-    <br>
-    <button onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
+    <header class='main_header'>
+        <div class='hello_info'>
+            <h1 class='banner'>Welcome to Ascension</h1>
+            <button class='signin_button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
+        </div>
+    </header>
+    <div class='content_wrapper'>
+        <div class='content_background'>
+            <img src='{{ url_for('static', filename='cherryblossom.jpg') }}'>
+        </div>
+    </div>
+    <footer class='main_footer'>
+    </footer>
 </body>
 </html>
