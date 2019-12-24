@@ -1,11 +1,11 @@
-.content_backgroud {
+.content_background {
   position: fixed;
   top: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   overflow: hidden;
+  z-index: -1;
 }
 
 .content_background img {
@@ -23,8 +23,10 @@
 }
 
 .main_header {
+  background: rgba(0, 0, 0, 0.4);
   height: 100px;
   z-index: 1;
+  margin: 0;
 }
 
 div .hello_info {
@@ -34,12 +36,13 @@ div .hello_info {
   width: 100%;
   padding: 40px 5vw;
   margin: 0;
+  opacity: 1.;
 }
 
 .hello_info .banner {
   position: absolute;
   bottom: 0;
-  left: 100px;
+  left: 5vw;
   color: white;
   margin: 0
 }
@@ -47,11 +50,34 @@ div .hello_info {
 .hello_info .signin_button {
   position: absolute;
   bottom: 0;
-  right: 250px;
+  right: 5vw;
   margin: 0
 }
 
-.main_footer {
-  height: 500px;
+.header_placeholder {
+  height: 100px;
+  width: 100%;
+}
+
+.content {
   z-index: 1;
+  margin: 0;
+}
+
+.content_intro {
+  margin: 0 5vw;
+  width: 100%;
+  height: 600px;
+  z-index: 100;
+}
+
+.content_intro #rule {
+  color: white;
+  z-index: 1;
+}
+
+.main_footer {
+  height: 300px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
 }

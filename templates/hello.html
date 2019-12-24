@@ -15,16 +15,20 @@
         }
     </style>
 </head>
-<body>
+<body id='hello_body'>
     <header class='main_header'>
         <div class='hello_info'>
             <h1 class='banner'>Welcome to Ascension</h1>
             <button class='signin_button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
         </div>
     </header>
-    <div class='content_wrapper'>
+    <div class='header_placeholder'></div>
+    <div class='content'>
         <div class='content_background'>
             <img src='{{ url_for('static', filename='cherryblossom.jpg') }}'>
+        </div>
+        <div class='content_intro'>
+            <h1 id='rule'>Rule</h1>
         </div>
     </div>
     <footer class='main_footer'>
