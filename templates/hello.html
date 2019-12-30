@@ -10,26 +10,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asscension Hello</title>
-    <style>
-        label, input, button {
-            margin: 8px;
-        }
-    </style>
 </head>
 <body id='hello_body'>
-    <header class='main_header'>
-        <div class='banner'>Welcome to Ascension</div>
-        <button class='signin_button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
+    <header class='main-header'>
     </header>
-    <div class='content'>
-        <div class='content_background'>
+
+    <div class='content-wrapper'>
+        <div class='content-background'>
             <img src='{{ url_for('static', filename='cherryblossom.jpg') }}'>
         </div>
-        <div class='content_intro'>
-            <div class='title' id='rule'>Rule</div>
-            <div class='title' id='history'>History</div>
+
+        <div class='content-main'>
+            <div class='hello-banner row'>
+                <div class='hello-info row'>
+                    <h3 id='banner-title' class='title'>Welcome to Ascension</h3>
+                    <p id='banner-text' class='text'>This is a little project for practice use. Anyway hope it works.</p>
+                </div>
+                <div class='signin-block row'>
+                    <button id='signin-button' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
+                </div>
+            </div>
+            <div class='row'>
+                <ul class='intro-list'>
+                    <li class='title' id='Intro'>Intro</li>
+                    <li class='title' id='Rules'>Rules</li>
+                    <li class='title' id='Tips'>Tips</li>
+                </ul>
+            </div>
         </div>
-        <footer class='main_footer'>
+
+        <footer class='main-footer'>
         </footer>
     </div>
 </body>
