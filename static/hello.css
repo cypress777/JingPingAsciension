@@ -145,6 +145,10 @@ li {
 }
 
 @media (min-width: 1100px) {
+  .main-header {
+    height: 115px !important;
+  }
+
   .title, li.title {
     font-size: 66px !important;
   }
