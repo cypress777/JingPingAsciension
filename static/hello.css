@@ -143,3 +143,17 @@ li {
     font-size: 4vw !important;
   }
 }
+
+@media (min-width: 1100px) {
+  .title, li.title {
+    font-size: 66px !important;
+  }
+
+  .hello-info.title {
+    font-size: 33px !important;
+  }
+
+  .text {
+    font-size: 19.s6px !important;
+  }
+}
