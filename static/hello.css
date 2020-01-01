@@ -63,7 +63,7 @@
 
 .content-main {
   position: relative;
-  width: calc(100vw - 160px);
+  width: calc(100% - 160px);
   max-width: 1200px;
   height: 1200px;
   margin: 0 auto;
@@ -111,7 +111,7 @@
   text-align: center;
   padding: 5px 10px;
 
-  color: black;
+  color: black !important;
 
   cursor: pointer;
 }
@@ -125,14 +125,27 @@ ul {
   padding: 0;
 }
 
-li {
-  line-height: 2;
+.intro-list {
+  line-height: 2.0;
 }
 
 .main-footer {
-  height: 300px;
+  position: relative;
+  width: calc(100% - 160px);
+  max-width: 1200px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 40px 80px;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.contact-list {
+  line-height: 1.5;
+}
+
+.contact-list .text {
+  color: #ff8fab !important;
 }
 
 @media (max-width: 820px) {
