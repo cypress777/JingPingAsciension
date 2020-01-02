@@ -35,7 +35,7 @@
             <div class='col'>
                 <ul class='intro-list'>
                     <li id='Intro'>
-                        <a class='title title-true' href='#' ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
+                        <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'" href='#' ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
                         <div class='intro-description-box' ng-hide="helloCtr.hideIntro">
                             <div class='intro-description text'>
                                 Ascension is ...<br>
@@ -43,7 +43,7 @@
                         </div>
                     </li>
                     <li id='Rules'>
-                        <a class='title title-true' href='#' ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
+                        <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'" href='#' ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
                         <div class='intro-description-box' ng-hide="helloCtr.hideRules">
                             <div class='intro-description text' ng-hide="helloCtr.hideRules">
                                 Rules are ...
@@ -51,7 +51,7 @@
                         </div>
                     </li>
                     <li id='Tips'>
-                        <a class='title title-true' href='#' ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
+                        <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'" href='#' ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
                         <div class='intro-description-box' ng-hide="helloCtr.hideTips">
                             <div class='intro-description text' ng-hide="helloCtr.hideTips">
                                 Tips are ...

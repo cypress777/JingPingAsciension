@@ -134,13 +134,13 @@ ul {
   text-decoration: none;
 }
 
-.intro-list .title:hover, .intro-list .title-false {
-  color: #dbffcc;
+.intro-list .title:hover, .title-active-intro, .title-active-rules, .title-active-tips   {
+  color: #dbffcc !important;
   cursor: pointer;
 }
 
 .intro-description-box {
-  transition: all linear 0.5s;
+  transition: all linear 0.2s;
   background: rgba(0, 0, 0, 0.6);
   height: 150px;
   overflow: hidden;
