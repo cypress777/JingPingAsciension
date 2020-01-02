@@ -76,8 +76,8 @@
   top: 0;
   right: 0;
   width: 100%;
-  margin: 5vw 0;
-  padding: 0;
+  padding: 5vw 0;
+  margin: 0;
 }
 
 .hello-info {
@@ -134,9 +134,13 @@ ul {
   text-decoration: none;
 }
 
-.intro-list .title:hover, .intro-list .title:active {
+.intro-list .title:hover, .intro-list .title:focus, .intro-list .title:active {
   color: #dbffcc;
   cursor: pointer;
+}
+
+.intro-list .intro-description {
+  display: none;
 }
 
 .main-footer {
