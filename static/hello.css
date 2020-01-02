@@ -130,7 +130,7 @@ ul {
   line-height: 2.0;
 }
 
-.intro-list a:link, .intro-list a:visited, .intro-list a:active {
+.intro-list a {
   text-decoration: none;
 }
 
@@ -140,7 +140,13 @@ ul {
 }
 
 .intro-list .intro-description {
-  display: none;
+  transition: all linear 10ms;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 80px 40px;
+}
+
+.intro-list .ng-hide {
+  height: 0;
 }
 
 .main-footer {

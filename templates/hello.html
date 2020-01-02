@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="helloApp" ng-controller="helloController as helloCtr">
 <head>
     <link rel=icon href="{{ url_for('static', filename='icon.png') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='hello.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='common.css') }}">
-    <script src="https://ajax.googleapis.com/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="{{ url_for('static', filename='hello.js') }}"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +19,7 @@
 
     <div class='content-wrapper'>
         <div class='content-background'>
-            <img src='{{ url_for('static', filename='cherryblossom.jpg') }}'>
+            <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
         </div>
 
         <div class='content-main'>
@@ -27,19 +29,28 @@
                     <p id='banner-text' class='text'>This is a little project for practice use. Anyway hope it works.</p>
                 </div>
                 <div class='signin-block col'>
-                    <button id='signin-button' class='text' onclick="window.location.href='{{url_for('Login')}}';">Log In / Sign Up</button>
+                    <button id='signin-button' class='text' onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
                 </div>
             </div>
             <div class='col'>
                 <ul class='intro-list'>
                     <li id='Intro'>
-                        <a class='title' href='#'>Intro</a>
+                        <a class='title' href='#' ng-click="hideIntro = !hideIntro">Intro</a>
+                        <div class='intro-description text' ng-hide="hideIntro">
+                            Ascension is ...
+                        </div>
                     </li>
                     <li id='Rules'>
-                        <a class='title' href='#'>Rules</a>
+                        <a class='title' href='#' ng-click="hideRules = !hideRules">Rules</a>
+                        <div class='intro-description text' ng-hide="hideRules">
+                            Rules are ...
+                        </div>
                     </li>
                     <li id='Tips'>
-                        <a class='title' href='#'>Tips</a>
+                        <a class='title' href='#' ng-click="hideTips = !hideTips">Tips</a>
+                        <div class='intro-description text' ng-hide="hideTips">
+                            Tips are ...
+                        </div>
                     </li>
                 </ul>
             </div>
