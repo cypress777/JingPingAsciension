@@ -134,18 +134,23 @@ ul {
   text-decoration: none;
 }
 
-.intro-list .title:hover, .intro-list .title:focus, .intro-list .title:active {
+.intro-list .title:hover, .intro-list .title-false {
   color: #dbffcc;
   cursor: pointer;
 }
 
-.intro-list .intro-description {
-  transition: all linear 10ms;
+.intro-description-box {
+  transition: all linear 0.5s;
   background: rgba(0, 0, 0, 0.6);
-  padding: 80px 40px;
+  height: 150px;
+  overflow: hidden;
 }
 
-.intro-list .ng-hide {
+.intro-description {
+  padding: 40px 40px;
+}
+
+.ng-hide {
   height: 0;
 }
 
