@@ -49,15 +49,16 @@
 }
 
 .content-background img {
-  min-width: 50%;
-  min-height: 50%;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
   max-width: none;
   max-height: none;
   width: auto;
   height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -30%);
+  top: 30%;
+  left: 10%;
+  transform: translate(-35%, -30%);
   overflow: hidden;
 }
 
