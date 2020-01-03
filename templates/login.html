@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel=icon href="{{ url_for('static', filename='icon.png') }}">
+    <link rel=stylesheet type=text/css href="static/common.css">
+    <link rel=stylesheet type=text/css href="static/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="static/login.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asscension Login</title>
-    <style>
-        label, input, button {
-            margin: 8px;
-        }
-    </style>
 </head>
 <body>
-    <form action="{{url_for('Login')}}" method="POST">
-        <h2>Ascension Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+    <div class="content-background">
+        <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
+    </div>
+
+    <div class="content-main">
+        <form action="{{url_for('Login')}}" method="POST" name="loginForm" ng-app="loginApp" ng-controller="loginController as loginCtr">
+            <div class="title">Login</div>
+            <br>
+
+            <div class="text">Username:</div>
+            <br>
+            <input type="text" name="username" id="username" ng-model="loginCtr.username" required>
+            <span style="color:red" ng-show="loginCtr.loginForm.username.$dirty && loginCtr.loginForm.username.$invalid">
+                <span ng-show="loginCtr.loginForm.username.$error.required">Invalid empty username</span>
+            </span>
+            <br>
+            <br>
+
+            <div class="text">Password:</div>
+            <br>
+            <input type="password" name="password" id="password">
+            <br>
+            <button class="text" type=submit>Log in</button>
+        </form>
         <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
         <br>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-          <strong>{{message}}</strong>
-          {% endfor %}
-        <br>
-        {% endif %}
-        {% endwith %}
-        <button type=submit>Log in</button>
-    </form>
-    <br>
-    <br>
-    <label for="signup">Not a member?</label>
-    <button type="button" name="signup" onclick="window.location.href='{{url_for('Signup')}}';">Sign up</button>
+        <label class="text" for="signup">Not a member?</label>
+        <button class="text" type="button" name="signup" onclick="window.location.href='{{url_for('Signup')}}';">Sign up</button>
+    </div>
 </body>
 </html>
