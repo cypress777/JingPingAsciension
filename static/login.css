@@ -15,6 +15,14 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.warning {
+    color: red !important;
+}
+
+.button {
+    color: black !important;
+}
+
 @media (max-width: 820px) {
     .col {
         position: relative !important;

@@ -1,5 +1,6 @@
-var loginApp = angular.module('loginApp', ['ngAnimate']);
+var loginApp = angular.module('loginApp', []);
 
 loginApp.controller('loginController', function() {
-    this.username="username";
+    this.username = null;
+    this.password = null;
 });
