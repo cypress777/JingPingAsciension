@@ -63,6 +63,19 @@ footer {
   background: #dbffcc;
 }
 
+.button-link {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  color: #b2ff91;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-link:hover, button:focus {
+  color: #dbffcc;
+}
+
 @media (max-width: 820px) {
   .col {
     position: relative !important;
