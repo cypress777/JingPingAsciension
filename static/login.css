@@ -29,15 +29,7 @@
     margin: 5vw auto;
 }
 
-.button {
-    color: black !important;
-}
-
 .warning {
-    color: #b2ff91 !important;
+    color: #3dcc00 !important;
 }
 
-.sign-in-btn {
-    margin-left: auto;
-    margin-right: 0;
-}

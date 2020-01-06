@@ -49,7 +49,7 @@
             {% endif %}
             {% endwith %}
 
-            <button class="text button sign-in-btn" type="submit"
+            <button class="button text" id="sign-in-btn" type="submit"
             ng-disabled="loginForm.username.$dirty && loginForm.username.$invalid">
                 Sign in
             </button>
@@ -58,7 +58,7 @@
         <br><br>
 
         <label class="text signup-text" for="signup">Not a member?</label>
-        <button class="text button" type="button" name="signup" onclick="window.location.href='{{url_for('Signup')}}';">Sign up</button>
+        <button class="button text" id="sign-up-btn" onclick="window.location.href='{{url_for('Signup')}}';">Sign up</button>
     </div>
 </body>
 </html>

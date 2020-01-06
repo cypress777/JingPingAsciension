@@ -75,19 +75,6 @@
   position: relative;
   margin-top: auto;
   min-width: 160px;
-
-  border: none;
-  background: #b2ff91;
-  text-align: center;
-  padding: 5px 10px;
-
-  color: black !important;
-
-  cursor: pointer;
-}
-
-#signin-button:hover, #sign-button:focus {
-  background: #dbffcc;
 }
 
 ul {
