@@ -15,67 +15,68 @@
 </head>
 <body id="hello_body">
     <header class="main-header">
-        <a href="{{url_for('Welcome')}}">
-            <img class="home-shortcut-icon" src="{{ url_for('static', filename='icon.png') }}">
-        </a>
-    </header>
-    <div class="content-wrapper">
-        <div class="content-background">
-            <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
-        </div>
-
         <div class="content-main">
-            <div class="hello-banner">
-                <div class="hello-info col">
-                    <div id="banner-title" class="title">Welcome to Ascension</div>
-                    <p id="banner-text" class="text">
-                        This is a little project for practice use. Anyway hope it works.
-                    </p>
-                </div>
-                <div class="signin-block col">
-                    <button id="signin-button" class="button text"
-                    onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
-                </div>
+            <a href="{{url_for('Welcome')}}">
+                <img class="home-shortcut-icon" src="{{ url_for('static', filename='icon.png') }}">
+            </a>
+        </div>
+    </header>
+    
+    <div class="content-background">
+        <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
+    </div>
+
+    <div class="content-main">
+        <div class="hello-banner">
+            <div class="hello-info col">
+                <div id="banner-title" class="title">Welcome to Ascension</div>
+                <p id="banner-text" class="text">
+                    This is a little project for practice use. Anyway hope it works.
+                </p>
             </div>
-            <div class="col">
-                <ul class="intro-list" ng-app="helloApp" ng-controller="helloController as helloCtr">
-                    <li id="Intro">
-                        <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'"
-                        href="#" ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
-                        <div class="intro-description-box" ng-hide="helloCtr.hideIntro">
-                            <div class="intro-description text">
-                                Ascension is ...<br>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="Rules">
-                        <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'"
-                        href="#" ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
-                        <div class="intro-description-box" ng-hide="helloCtr.hideRules">
-                            <div class="intro-description text" ng-hide="helloCtr.hideRules">
-                                Rules are ...
-                            </div>
-                        </div>
-                    </li>
-                    <li id="Tips">
-                        <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'"
-                        href="#" ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
-                        <div class="intro-description-box" ng-hide="helloCtr.hideTips">
-                            <div class="intro-description text" ng-hide="helloCtr.hideTips">
-                                Tips are ...
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="signin-block col">
+                <button id="signin-button" class="button text"
+                onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
             </div>
         </div>
-
-        <footer class="main-footer">
-            <ul class="contact-list">
-                <li id="Email">Email: chenypress@gmail.com</li>
-                <li id="Instagram">Instagram: cypress777</li>
+        <div class="col">
+            <ul class="intro-list" ng-app="helloApp" ng-controller="helloController as helloCtr">
+                <li id="Intro">
+                    <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'"
+                    href="#" ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
+                    <div class="intro-description-box" ng-hide="helloCtr.hideIntro">
+                        <div class="intro-description text">
+                            Ascension is ...<br>
+                        </div>
+                    </div>
+                </li>
+                <li id="Rules">
+                    <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'"
+                    href="#" ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
+                    <div class="intro-description-box" ng-hide="helloCtr.hideRules">
+                        <div class="intro-description text" ng-hide="helloCtr.hideRules">
+                            Rules are ...
+                        </div>
+                    </div>
+                </li>
+                <li id="Tips">
+                    <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'"
+                    href="#" ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
+                    <div class="intro-description-box" ng-hide="helloCtr.hideTips">
+                        <div class="intro-description text" ng-hide="helloCtr.hideTips">
+                            Tips are ...
+                        </div>
+                    </div>
+                </li>
             </ul>
-        </footer>
+        </div>
     </div>
+
+    <footer class="main-footer">
+        <ul class="contact-list">
+            <li id="Email">Email: chenypress@gmail.com</li>
+            <li id="Instagram">Instagram: cypress777</li>
+        </ul>
+    </footer>
 </body>
 </html>

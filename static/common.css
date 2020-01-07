@@ -33,6 +33,16 @@ header {
   margin: 10px auto 10px 0px;
 }
 
+.content-main {
+  position: relative;
+  width: calc(100% - 160px);
+  max-width: 1200px;
+  height: auto;
+  min-height: calc(100vh - 60px - 5vw);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
 footer {
   position: relative;
 
@@ -86,6 +96,10 @@ footer {
     height: 80px !important;
   }
 
+  .content-main {
+    min-height: calc(100vh - 80px);
+  }
+
   .home-shortcut-icon {
     width: 60px;
     height: 60px;
@@ -123,6 +137,10 @@ footer {
 @media (min-width: 1200px) {
   .main-header {
     height: 140px !important;
+  }
+
+  .content-main {
+    min-height: calc(100vh - 140px);
   }
 
   .home-shortcut-icon {

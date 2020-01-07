@@ -15,16 +15,18 @@
 </head>
 <body>
     <header class="main-header">
-        <a href="{{url_for('Welcome')}}">
-            <img class="home-shortcut-icon" src="{{ url_for('static', filename='icon.png') }}">
-        </a>
+        <div class="content-main">
+            <a href="{{url_for('Welcome')}}">
+                <img class="home-shortcut-icon" src="{{ url_for('static', filename='icon.png') }}">
+            </a>
+        </div>
     </header>
 
     <div class="content-background">
         <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
     </div>
     
-    <div class="content-main">
+    <div class="user-access-box">
         <div class="title">Log in</div><br><br>
 
         <form ng-app="loginApp" ng-controller="loginController as loginCrtl" 

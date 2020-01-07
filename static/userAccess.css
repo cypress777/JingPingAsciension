@@ -22,12 +22,12 @@
     overflow: hidden;
 }
 
-.content-main {
+.user-access-box {
     position: relative;
     width: 300px;
     height: auto;
     margin: 5vw auto;
-    padding: 40px;
+    padding: 0px;
 }
 
 .warning {
