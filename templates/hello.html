@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="helloApp" ng-controller="helloController as helloCtr">
+<html lang="en">
 <head>
     <link rel=icon href="{{ url_for('static', filename='icon.png') }}">
     <link rel=stylesheet type=text/css href="static/common.css">
@@ -26,16 +26,20 @@
             <div class="hello-banner">
                 <div class="hello-info col">
                     <div id="banner-title" class="title">Welcome to Ascension</div>
-                    <p id="banner-text" class="text">This is a little project for practice use. Anyway hope it works.</p>
+                    <p id="banner-text" class="text">
+                        This is a little project for practice use. Anyway hope it works.
+                    </p>
                 </div>
                 <div class="signin-block col">
-                    <button id="signin-button" class="button text" onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
+                    <button id="signin-button" class="button text"
+                    onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
                 </div>
             </div>
             <div class="col">
-                <ul class="intro-list">
+                <ul class="intro-list" ng-app="helloApp" ng-controller="helloController as helloCtr">
                     <li id="Intro">
-                        <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'" href="#" ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
+                        <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'"
+                        href="#" ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
                         <div class="intro-description-box" ng-hide="helloCtr.hideIntro">
                             <div class="intro-description text">
                                 Ascension is ...<br>
@@ -43,7 +47,8 @@
                         </div>
                     </li>
                     <li id="Rules">
-                        <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'" href="#" ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
+                        <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'"
+                        href="#" ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
                         <div class="intro-description-box" ng-hide="helloCtr.hideRules">
                             <div class="intro-description text" ng-hide="helloCtr.hideRules">
                                 Rules are ...
@@ -51,7 +56,8 @@
                         </div>
                     </li>
                     <li id="Tips">
-                        <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'" href="#" ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
+                        <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'"
+                        href="#" ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
                         <div class="intro-description-box" ng-hide="helloCtr.hideTips">
                             <div class="intro-description text" ng-hide="helloCtr.hideTips">
                                 Tips are ...
