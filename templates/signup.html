@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel=icon href="{{ url_for('static', filename='icon.png') }}">
+    <link rel=stylesheet type=text/css href="static/common.css">
+    <link rel=stylesheet type=text/css href="static/userAccess.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="static/userAccess.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asscension Signup</title>
-    <style>
-        label, input, button {
-            margin: 8px;
-        }
-    </style>
 </head>
 <body>
-    <form action='{{url_for('Signup')}}' method="POST">
-        <h2>Ascension Signup</h2>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-          <strong>{{message}}</strong>
-          {% endfor %}
-        <br>
-        {% endif %}
-        {% endwith %}
+    <header class="main-header">
+    </header>
 
-        <button type=submit>Sign up</button>
-    </form>
-    <br>
-    <br>
-    <label for="login">Back to Login</label>
-    <button type="button" name="login" onclick="window.location.href='{{url_for('Login')}}';">Log in</button>
-    <script src="https://ajax.googleapis.com/libs/angularjs/1.7.9/angular.min.js"></script>
+    <div class="content-background">
+        <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
+    </div>
+        
+    <div class="content-main">
+        <div class="title">Sign up</div><br><br>
+
+        <form ng-app="signupApp" ng-controller="signupController as signupCrtl" 
+        name="signupForm" action="{{url_for('Signup')}}" method="POST">
+            <div class="text">Username:<br>
+            <input type="text" name="username" ng-model="username" required>
+            <span class="text warning" ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+            <span ng-show="signupForm.username.$error.required">Invalid empty username</span>
+            </span>
+            </div>
+            
+            <div class="text">Password:<br>
+            <input type="password" name="password" ng-model="password" required>
+            <span class="text warning" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+            <span ng-show="signupForm.password.$error.required">Invalid empty password</span>
+            </span>
+            </div>
+
+            <br>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <div class="text warning">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <button class="button text" id="sign-in-btn" type="submit"
+            ng-disabled="signupForm.username.$dirty && signupForm.username.$invalid">
+                Sign up
+            </button>
+        </form>
+
+        <br><br>
+
+        <label class="text signup-text" for="signup">Aready a member?</label>
+        <button class="button-link text" id="sign-up-btn" onclick="window.location.href='{{url_for('Login')}}';">
+            Log in
+        </button>
+    </div>
 </body>
 </html>
