@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, request, url_for, redirect, flash
-app = Flask(__name__)
-
+from flask import Flask, render_template, request, url_for, redirect, flash, session
 from database_utils import DatabaseException, init_database
 from database_setup import Base, DatabaseName, UserInfo
-
 from utils import infoLogger, errorLogger, debugLogger, ErrorCodes
+import os
+
+app = Flask(__name__)
 
 DatabaseSession = None
 
@@ -38,8 +38,10 @@ def is_valid_log_in(username, password):
     return False
   return True
 
-def log_in_user(username):
-  return render_template('welcome.html', welcome_info='Welcome Back', username=username)
+def log_in_user(userinfo):
+  session['logged_in'] = True
+  session['username'] = userinfo.name
+  return redirect(url_for('Game', username=userinfo.name))
 
 def is_valid_sign_up(username, password):
   global DatabaseSessioin
@@ -78,12 +80,18 @@ def Login():
     password = request.form['password']
 
     if is_valid_log_in(username, password):
-      return log_in_user(username)
+      return log_in_user(UserInfo(name=username, password=password))
     else:
       error = 'Invalid log in: Wrong username/password'
     flash(error)
 
   return render_template('login.html')
+
+@app.route('/logout')
+def Logout():
+  session['logged_in'] = False
+  session['username'] = None
+  return redirect(url_for('Welcome'))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def Signup():
@@ -104,10 +112,18 @@ def Signup():
 
   return render_template('signup.html')
 
+@app.route('/game/<string:username>', methods=['GET', 'POST'])
+def Game(username):
+  if session.get('logged_in') and session.get('username') == username:
+    return render_template('game.html', welcome_info='Welcome Back', username=username)
+  else:
+    return redirect(url_for('Welcome'))
+
 if __name__ == '__main__':
   try:
     DatabaseSession = init_database(DatabaseName, Base)
-    app.secret_key = 'super_secret_key'
+    # app.secret_key = 'super_secret_key'
+    app.secret_key = os.urandom(12)
     app.debug = True
     app.run(host = '0.0.0.0', port = 8000)
   except KeyboardInterrupt:
