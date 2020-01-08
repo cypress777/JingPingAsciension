@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asscension Login</title>
 </head>
-<body>
+<body ng-app="loginApp">
     <header class="main-header">
         <div class="content-main">
             <a href="{{url_for('Welcome')}}">
@@ -29,23 +29,22 @@
     <div class="user-access-box">
         <div class="title">Log in</div><br><br>
 
-        <form ng-app="loginApp" ng-controller="loginController as loginCrtl" 
+        <form ng-controller="loginController" 
         name="loginForm" action="{{url_for('Login')}}" method="POST">
             <div class="text">Username:<br>
             <input type="text" name="username" ng-model="username" required>
             <span class="text warning" ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
             <span ng-show="loginForm.username.$error.required">Invalid empty username</span>
             </span>
-            </div>
+            </div><br>
             
             <div class="text">Password:<br>
             <input type="text" name="password" ng-model="password" required>
             <span class="text warning" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
             <span ng-show="loginForm.password.$error.required">Invalid empty password</span>
             </span>
-            </div>
-
-            <br>
+            </div><br>
+            
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}

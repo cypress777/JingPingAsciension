@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asscension Hello</title>
 </head>
-<body id="hello_body">
+<body id="hello_body" ng-app="helloApp">
     <header class="main-header">
         <div class="content-main">
             <a href="{{url_for('Welcome')}}">
@@ -40,30 +40,30 @@
             </div>
         </div>
         <div class="col">
-            <ul class="intro-list" ng-app="helloApp" ng-controller="helloController as helloCtr">
+            <ul class="intro-list" ng-controller="helloController">
                 <li id="Intro">
-                    <a class="title" ng-class="helloCtr.hideIntro ? '' : 'title-active-intro'"
-                    href="#" ng-click="helloCtr.hideIntro = !helloCtr.hideIntro">Intro</a>
-                    <div class="intro-description-box" ng-hide="helloCtr.hideIntro">
+                    <a class="title" ng-class="hideIntro ? '' : 'title-active-intro'"
+                    href="#" ng-click="hideIntro = !hideIntro">Intro</a>
+                    <div class="intro-description-box" ng-hide="hideIntro">
                         <div class="intro-description text">
                             Ascension is ...<br>
                         </div>
                     </div>
                 </li>
                 <li id="Rules">
-                    <a class="title" ng-class="helloCtr.hideRules ? '' : 'title-active-rules'"
-                    href="#" ng-click="helloCtr.hideRules = !helloCtr.hideRules">Rules</a>
-                    <div class="intro-description-box" ng-hide="helloCtr.hideRules">
-                        <div class="intro-description text" ng-hide="helloCtr.hideRules">
+                    <a class="title" ng-class="hideRules ? '' : 'title-active-rules'"
+                    href="#" ng-click="hideRules = !hideRules">Rules</a>
+                    <div class="intro-description-box" ng-hide="hideRules">
+                        <div class="intro-description text" ng-hide="hideRules">
                             Rules are ...
                         </div>
                     </div>
                 </li>
                 <li id="Tips">
-                    <a class="title" ng-class="helloCtr.hideTips ? '' : 'title-active-tips'"
-                    href="#" ng-click="helloCtr.hideTips = !helloCtr.hideTips">Tips</a>
-                    <div class="intro-description-box" ng-hide="helloCtr.hideTips">
-                        <div class="intro-description text" ng-hide="helloCtr.hideTips">
+                    <a class="title" ng-class="hideTips ? '' : 'title-active-tips'"
+                    href="#" ng-click="hideTips = !hideTips">Tips</a>
+                    <div class="intro-description-box" ng-hide="hideTips">
+                        <div class="intro-description text" ng-hide="hideTips">
                             Tips are ...
                         </div>
                     </div>
