@@ -6,7 +6,7 @@ from database_setup import Base, DatabaseName, UserInfo
 from utils import infoLogger, errorLogger, debugLogger, ErrorCodes
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
 DatabaseSession = None
 
@@ -69,7 +69,7 @@ def sign_up_user(username, password):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/en', methods=['GET', 'POST'])
 def Welcome():
-  return render_template('hello.html')
+  return render_template('hello.html', title='Welcome to Ascension', ngApp='helloApp')
 
 @app.route('/login', methods=['GET', 'POST'])
 def Login():
