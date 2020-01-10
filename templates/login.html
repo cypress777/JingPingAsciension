@@ -1,70 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel=icon href="{{ url_for('static', filename='cat-circle-50.gif') }}">
-    <link rel=stylesheet type=text/css href="static/common.css">
-    <link rel=stylesheet type=text/css href="static/userAccess.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
-    <script src="static/userAccess.js"></script>
+{% extends 'layout.html' %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Asscension Login</title>
-</head>
-<body ng-app="loginApp">
-    <header class="main-header">
-        <div class="content-main">
-            <a href="{{url_for('Welcome')}}">
-                <img class="home-shortcut-icon" src="{{ url_for('static', filename='cat-circle-150.gif') }}">
-            </a>
-        </div>
-    </header>
+{% block head %}
+<link rel=icon href="{{ url_for('static', filename='cat-circle-50.gif') }}">
+<link rel=stylesheet type=text/css href="static/common.css">
+<link rel=stylesheet type=text/css href="static/userAccess.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="static/userAccess.js"></script>
+{% endblock %}
 
-    <div class="content-background">
-        <img src="{{ url_for('static', filename='cherryblossom.jpg') }}">
-    </div>
-    
-    <div class="user-access-box">
-        <div class="title">Log in</div><br><br>
+{% block content %}
+<div class="user-access-box">
+    <div class="title">Log in</div><br><br>
 
-        <form ng-controller="loginController" 
-        name="loginForm" action="{{url_for('Login')}}" method="POST">
-            <div class="text">Username:<br>
-            <input type="text" name="username" ng-model="username" required>
-            <span class="text warning" ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
-            <span ng-show="loginForm.username.$error.required">Invalid empty username</span>
-            </span>
-            </div><br>
-            
-            <div class="text">Password:<br>
-            <input type="password" name="password" ng-model="password" required>
-            <span class="text warning" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-            <span ng-show="loginForm.password.$error.required">Invalid empty password</span>
-            </span>
-            </div><br>
-            
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-              <div class="text warning">{{message}}</div>
-              {% endfor %}
-            {% endif %}
-            {% endwith %}
+    <form ng-controller="loginController"
+    name="loginForm" action="{{url_for('Login')}}" method="POST">
+        <div class="text">Username:<br>
+        <input type="text" name="username" ng-model="username" required>
+        <span class="text warning" ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
+        <span ng-show="loginForm.username.$error.required">Invalid empty username</span>
+        </span>
+        </div><br>
 
-            <button class="button text" id="sign-in-btn" type="submit"
-            ng-disabled="loginForm.username.$dirty && loginForm.username.$invalid">
-                Sign in
-            </button>
-        </form>
+        <div class="text">Password:<br>
+        <input type="password" name="password" ng-model="password" required>
+        <span class="text warning" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+        <span ng-show="loginForm.password.$error.required">Invalid empty password</span>
+        </span>
+        </div><br>
 
-        <br><br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <div class="text warning">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
 
-        <label class="text signup-text" for="signup">Not a member?</label>
-        <button class="button-link text" id="sign-up-btn" onclick="window.location.href='{{url_for('Signup')}}';">
-            Sign up
+        <button class="button text" id="sign-in-btn" type="submit"
+        ng-disabled="loginForm.username.$dirty && loginForm.username.$invalid">
+            Log in
         </button>
-    </div>
-</body>
-</html>
+    </form>
+
+    <br><br>
+
+    <label class="text signup-text" for="signup">Not a member?</label>
+    <button class="button-link text" id="sign-up-btn" onclick="window.location.href='{{url_for('Signup')}}';">
+        Sign up
+    </button>
+</div>
+{% endblock %}

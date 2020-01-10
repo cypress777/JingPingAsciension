@@ -85,7 +85,7 @@ def Login():
       error = 'Invalid log in: Wrong username/password'
     flash(error)
 
-  return render_template('login.html')
+  return render_template('login.html', title='Login', ngApp='loginApp')
 
 @app.route('/logout')
 def Logout():
@@ -110,7 +110,7 @@ def Signup():
         error = 'Invalid password: password should be letters and numbers'
       flash(error)
 
-  return render_template('signup.html')
+  return render_template('signup.html', title='Signup', ngApp='signupApp')
 
 @app.route('/game/<string:username>', methods=['GET', 'POST'])
 def Game(username):
