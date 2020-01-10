@@ -25,18 +25,15 @@
     </div>
     <div class="col">
         <ul class="intro-list" ng-controller="helloController">
-            {% for i in range(3) %}
-            <li>
-                <a class="title" ng-class="getClass({{ i }})"
-                href="#" ng-click="flipHide({{ i }})" ng-bind="getTitle({{ i }})"></a>
-                <div class="intro-description-box" ng-hide="getHide({{ i }})">
-                    <div class="intro-description text" ng-bind="getDescription({{ i }})"></div>
+            <li ng-repeat="i in range(0, titleNum - 1)">
+                <a class="title" ng-class="getClass(i)"
+                href="#" ng-click="flipHide(i)" ng-bind="getTitle(i)"></a>
+                <div class="intro-description-box" ng-hide="getHide(i)">
+                    <div class="intro-description text" ng-bind="getDescription(i)"></div>
                 </div>
             </li>
-            {% endfor %}
         </ul>
     </div>
 </div>
-
 {% include 'footer.html' %}
 {% endblock %}
