@@ -23,8 +23,8 @@
             onclick="window.location.href='{{ url_for('Login') }}';">Log In / Sign Up</button>
         </div>
     </div>
-    <div class="col">
-        <ul class="intro-list" ng-controller="helloController">
+    <div class="col" ng-controller="{{ ngCtrl }}">
+        <ul class="intro-list">
             <li ng-repeat="i in range(0, titleNum - 1)">
                 <a class="title" ng-class="getClass(i)"
                 href="#" ng-click="flipHide(i)" ng-bind="getTitle(i)"></a>

@@ -1,0 +1,61 @@
+{% extends 'user_access_layout.html' %}
+
+{% block username %}
+<div class="text">Username:<br>
+    <input type="text" name="username" placeholder="username" ng-model="username" ng-pattern="pattern" required>
+    <span class="text warning" ng-show="userAccessForm.username.$dirty && userAccessForm.username.$invalid">
+    <span ng-show="userAccessForm.username.$error.required">Invalid empty username</span>
+    <span ng-show="!userAccessForm.username.$error.required && userAccessForm.username.$error.pattern">Invalid symbol</span>
+    </span>
+</div>
+<br>
+{% endblock %}
+
+{% block password %}
+<div class="text">Password:<br>
+    <input type="password" name="password" placeholder="password" ng-model="password" ng-pattern="pattern" ng-trim="false" required>
+    <span class="text warning" ng-show="userAccessForm.password.$dirty && userAccessForm.password.$invalid">
+    <span ng-show="userAccessForm.password.$error.required">Invalid empty password</span>
+    <span ng-show="!userAccessForm.password.$error.required && userAccessForm.password.$error.pattern">Invalid symbol</span>
+    </span>
+</div>
+<br>
+{% endblock %}
+
+{% block flashMsg %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+    <div class="text warning">{{message}}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock %}
+
+{% block loginBtn %}
+<button class="button text" id="log-in-btn" type="submit"
+ng-disabled="userAccessForm.username.$dirty && userAccessForm.username.$invalid">
+    Log in
+</button>
+{% endblock %}
+
+{% block signupBtn %}
+<button class="button text" id="sign-in-btn" type="submit"
+ng-disabled="signupForm.username.$dirty && signupForm.username.$invalid">
+    Sign up
+</button>
+{% endblock %}
+
+{% block loginLnk %}
+<label class="text signup-text" for="signup">Not a member?</label>
+<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('Signup')}}';">
+    Sign up
+</button>
+{% endblock %}
+
+{% block signupLnk %}
+<label class="text signup-text" for="signup">Aready a member?</label>
+<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('Login')}}';">
+    Log in
+</button>
+{% endblock %}

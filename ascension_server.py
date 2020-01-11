@@ -69,7 +69,7 @@ def sign_up_user(username, password):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/en', methods=['GET', 'POST'])
 def Welcome():
-  return render_template('hello.html', title='Welcome to Ascension', ngApp='helloApp')
+  return render_template('hello.html', title='Welcome to Ascension', ngApp='helloApp', ngCtrl='helloController')
 
 @app.route('/login', methods=['GET', 'POST'])
 def Login():
@@ -85,7 +85,7 @@ def Login():
       error = 'Invalid log in: Wrong username/password'
     flash(error)
 
-  return render_template('login.html', title='Login', ngApp='loginApp')
+  return render_template('user_access.html', title='Login', ngApp='userAccessApp', ngCtrl='userAccessController')
 
 @app.route('/logout')
 def Logout():
@@ -110,7 +110,7 @@ def Signup():
         error = 'Invalid password: password should be letters and numbers'
       flash(error)
 
-  return render_template('signup.html', title='Signup', ngApp='signupApp')
+  return render_template('user_access.html', title='Signup', ngApp='userAccessApp', ngCtrl='userAccessController')
 
 @app.route('/game/<string:username>', methods=['GET', 'POST'])
 def Game(username):

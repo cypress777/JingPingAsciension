@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel=icon href="{{ url_for('static', filename='cat-circle-50.gif') }}">
+<link rel=stylesheet type=text/css href="static/common.css">
+<link rel=stylesheet type=text/css href="static/user_access.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="static/user_access.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="user-access-box">
+    <div class="title">
+        {% if title=="Login" %}
+        Log In
+        {% else %}
+        Sign Up
+        {% endif %}
+    </div>
+    <br><br>
+
+    <form ng-controller="{{ ngCtrl }}" name="userAccessForm" action="{{url_for('Login')}}" method="POST">
+        {% block username %}{% endblock %}
+
+        {% if title=="Login" %}
+        {% block email %}{% endblock %}
+        {% endif %}
+
+        {% block password %}{% endblock %}
+
+        {% block flashMsg %}{% endblock %}
+
+        {% if title=="Login" %}
+        {% block loginBtn %}{% endblock %}
+        {% else %}
+        {% block signupBtn %}{% endblock %}
+        {% endif %}
+    </form>
+
+    <br><br>
+
+    {% if title=="Login" %}
+    {% block loginLnk %}{% endblock %}
+    {% else %}
+    {% block signupLnk %}{% endblock %}
+    {% endif %}
+</div>
+{% endblock %}
