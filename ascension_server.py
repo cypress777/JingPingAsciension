@@ -64,7 +64,7 @@ def sign_up_user(username, password):
   except:
     raise
 
-  return render_template('login.html')
+  return redirect(url_for('Login'))
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/en', methods=['GET', 'POST'])

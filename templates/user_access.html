@@ -34,14 +34,14 @@
 
 {% block loginBtn %}
 <button class="button text" id="log-in-btn" type="submit"
-ng-disabled="userAccessForm.username.$dirty && userAccessForm.username.$invalid">
+ng-disabled="(userAccessForm.username.$dirty && userAccessForm.username.$invalid) || (userAccessForm.password.$dirty && userAccessForm.password.$invalid)">
     Log in
 </button>
 {% endblock %}
 
 {% block signupBtn %}
-<button class="button text" id="sign-in-btn" type="submit"
-ng-disabled="signupForm.username.$dirty && signupForm.username.$invalid">
+<button class="button text" id="sign-up-btn" type="submit"
+ng-disabled="(userAccessForm.username.$dirty && userAccessForm.username.$invalid) || (userAccessForm.password.$dirty && userAccessForm.password.$invalid)">
     Sign up
 </button>
 {% endblock %}
