@@ -1,0 +1,9 @@
+Flask
+Flask-Assets
+Flask-Login
+Flask-SQLAlchemy
+jsmin
+cssmin
+Jinjia2
+SQLAlchemy
+Werkzeug
