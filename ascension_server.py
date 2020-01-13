@@ -6,7 +6,7 @@ from database_setup import Base, DatabaseName, UserInfo
 from utils import infoLogger, errorLogger, debugLogger, ErrorCodes
 import os
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 DatabaseSession = None
 
@@ -122,7 +122,6 @@ def Game(username):
 if __name__ == '__main__':
   try:
     DatabaseSession = init_database(DatabaseName, Base)
-    # app.secret_key = 'super_secret_key'
     app.secret_key = os.urandom(12)
     app.debug = True
     app.run(host = '0.0.0.0', port = 8000)
