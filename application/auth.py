@@ -32,6 +32,8 @@ def Login():
 
 @auth_bp.route('/signup', methods=['GET', 'POST'])
 def Signup():
+    if current_user.is_authenticated:
+        return redirect(url_for('main_bp.Game', username=current_user.name))
     error = None
 
     if request.method == 'POST':
