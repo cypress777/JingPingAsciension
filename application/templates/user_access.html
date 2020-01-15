@@ -48,14 +48,14 @@ ng-disabled="(userAccessForm.username.$dirty && userAccessForm.username.$invalid
 
 {% block loginLnk %}
 <label class="text signup-text" for="signup">Not a member?</label>
-<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('Signup')}}';">
+<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('auth_bp.Signup')}}';">
     Sign up
 </button>
 {% endblock %}
 
 {% block signupLnk %}
 <label class="text signup-text" for="signup">Aready a member?</label>
-<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('Login')}}';">
+<button class="button-link text" id="sign-up-lnk" onclick="window.location.href='{{url_for('auth_bp.Login')}}';">
     Log in
 </button>
 {% endblock %}
