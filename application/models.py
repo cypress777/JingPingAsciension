@@ -10,20 +10,13 @@ class User(UserMixin, db.Model):
 
     id = db.Column(db.Integer,
                    primary_key=True)
-    name = db.Column(db.String(32),
-                     nullable=False,
-                     unique=False)
-    email = db.Column(db.String(40),
-                      unique=True,
-                      nullable=False)
-    password = db.Column(db.String(32),
+    name = db.Column(db.String(256),
+                     unique=True,
+                     nullable=False)
+    password = db.Column(db.String(256),
                          primary_key=False,
                          unique=False,
                          nullable=False)
-    website = db.Column(db.String(60),
-                        index=False,
-                        unique=False,
-                        nullable=True)
     created_on = db.Column(db.DateTime,
                            index=False,
                            unique=False,

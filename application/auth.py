@@ -12,7 +12,7 @@ auth_bp = Blueprint('auth_bp', __name__,
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def Login():
     if current_user.is_authenticated:
-        return render_template(url_for('main_bp.Game', username=current_user.name))
+        return redirect(url_for('main_bp.Game', username=current_user.name))
 
     error = None
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def Login():
         if user:
             if user.check_password(password=password):
                 login_user(user)
-                return render_template(url_for('main_bp.Game', username=current_user.name))
+                return redirect(url_for('main_bp.Game', username=current_user.name))
         error = 'Invalid log in: Wrong username/password'
         flash(error)
         return redirect(url_for('auth_bp.Login'))
@@ -51,3 +51,22 @@ def Signup():
             return redirect(url_for('auth_bp.Signup'))
     else:
         return render_template('user_access.html', title='Signup', ngApp='userAccessApp', ngCtrl='userAccessController')
+
+@auth_bp.route("/logout")
+@login_required
+def logout_page():
+    logout_user()
+    return redirect(url_for('auth_bp.Login'))
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    if user_id is not None:
+        return User.query.get(user_id)
+    return None
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    flash('You must be logged in to view that page.')
+    return redirect(url_for('auth_bp.Login'))

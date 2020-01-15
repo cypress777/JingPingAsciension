@@ -19,7 +19,7 @@
     </div>
     <br><br>
 
-    <form ng-controller="{{ ngCtrl }}" name="userAccessForm" action="{{url_for(title)}}" method="POST">
+    <form ng-controller="{{ ngCtrl }}" name="userAccessForm" action="{{url_for('auth_bp.' + title)}}" method="POST">
         {% block username %}{% endblock %}
 
         {% if title=="Login" %}

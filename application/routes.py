@@ -3,11 +3,14 @@ from flask_login import current_user
 from flask import current_app as app
 from flask_login import login_required
 
-
-# Blueprint Configuration
 main_bp = Blueprint('main_bp', __name__,
                     template_folder='templates',
                     static_folder='static')
+
+@main_bp.route('/', methods=['GET', 'POST'])
+@main_bp.route('/en', methods=['GET', 'POST'])
+def Welcome():
+  return render_template('hello.html', title='Welcome to Ascension', ngApp='helloApp', ngCtrl='helloController')
 
 @main_bp.route('/game/<string:username>', methods=['GET', 'POST'])
 @login_required
