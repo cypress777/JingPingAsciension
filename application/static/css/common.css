@@ -12,7 +12,6 @@ body {
 }
 
 header {
-  display: block;
   width: 100vw;
   top: 0;
   left: 0;
@@ -29,17 +28,10 @@ header {
 }
 
 .home-shortcut-icon {
+  right: 0;
   width: 10vw;
   height: 10vw;
   margin: 10px auto 10px 0px;
-}
-
-.info-shortcut {
-  position: relative;
-  width: 20vw;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
 }
 
 .content-background {
@@ -71,7 +63,6 @@ header {
   width: calc(100% - 160px);
   max-width: 1200px;
   height: auto;
-  min-height: calc(100vh - 20px - 10vw);
   margin: 0 auto;
   padding: 0 80px;
 }
@@ -147,10 +138,6 @@ footer {
     height: 80px !important;
   }
 
-  .content-main {
-    min-height: calc(100vh - 80px);
-  }
-
   .home-shortcut-icon {
     width: 60px;
     height: 60px;
@@ -188,10 +175,6 @@ footer {
 @media (min-width: 1200px) {
   .main-header {
     height: 140px !important;
-  }
-
-  .content-main {
-    min-height: calc(100vh - 140px);
   }
 
   .home-shortcut-icon {

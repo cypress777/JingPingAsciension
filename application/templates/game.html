@@ -9,9 +9,9 @@
 {% endblock %}
 
 {% block userinfo %}
-<div class="info-shortcut">
-    <div class="text">Welcome~ {{ username }}</div>
-
+<div class="signout-block">
+    <button id="signout-button" class="button text"
+    onclick="window.location.href='{{ url_for('auth_bp.Logout') }}';">Log Out</button>
 </div>
 {% endblock %}
 

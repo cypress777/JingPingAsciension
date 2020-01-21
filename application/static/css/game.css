@@ -1,1 +1,10 @@
+.signout-block {
+  position: absolute;
+  bottom: 0;
+  right: 80px;
+  margin-bottom: 10px;
+}
 
+#signout-button {
+  min-width: 180px;
+}
