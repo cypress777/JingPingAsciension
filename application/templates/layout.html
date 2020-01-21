@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}{% endblock %}
+    <link rel=icon href="{{ url_for('static', filename='img/cat-circle-50.gif') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
+
+    {% block head %}{% endblock %}
 </head>
 
 <body ng-app={{ngApp}}>
@@ -14,6 +16,7 @@
             <a href="{{url_for('main_bp.Welcome')}}">
                 <img class="home-shortcut-icon" src="{{ url_for('static', filename='img/cat-circle-150.gif') }}">
             </a>
+            {% block userinfo %}{% endblock %}
         </div>
     </header>
 

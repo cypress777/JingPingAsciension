@@ -12,7 +12,7 @@ auth_bp = Blueprint('auth_bp', __name__,
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def Login():
     if current_user.is_authenticated:
-        return redirect(url_for('main_bp.Game', username=current_user.name))
+        return redirect(url_for('main_bp.Game'))
 
     error = None
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def Login():
         if user:
             if user.check_password(password=password):
                 login_user(user)
-                return redirect(url_for('main_bp.Game', username=current_user.name))
+                return redirect(url_for('main_bp.Game'))
         error = 'Invalid log in: Wrong username/password'
         flash(error)
         return redirect(url_for('auth_bp.Login'))
@@ -33,7 +33,7 @@ def Login():
 @auth_bp.route('/signup', methods=['GET', 'POST'])
 def Signup():
     if current_user.is_authenticated:
-        return redirect(url_for('main_bp.Game', username=current_user.name))
+        return redirect(url_for('main_bp.Game'))
     error = None
 
     if request.method == 'POST':

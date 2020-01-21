@@ -67,3 +67,19 @@ ul {
 .ng-hide {
   height: 0;
 }
+
+.content-main-hello {
+  min-height: calc(100vh - 20px - 10vw);
+}
+
+@media (max-width: 600px) {
+  .content-main-hello {
+    min-height: calc(100vh - 80px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-main-hello {
+    min-height: calc(100vh - 140px);
+  }
+}

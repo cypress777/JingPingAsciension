@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block head %}
-<link rel=icon href="{{ url_for('static', filename='img/cat-circle-50.gif') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/hello.css') }}">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
@@ -10,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="content-main">
+<div class="content-main content-main-hello">
     <div class="hello-banner">
         <div class="hello-info col">
             <div id="banner-title" class="title">Welcome to Ascension</div>
