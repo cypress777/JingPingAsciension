@@ -24,9 +24,36 @@
   z-index: 1;
 }
 
-.dashboard-block {
-  width: 100vw;
-  height: 30vh;
-  margin: 2vw;
+.deck-wrapper {
+  display: grid;
+  grid-template-columns: (1, 3);
+  height: 85vh;
+}
+
+.deck-block {
+  width: 95vw;
+  margin: auto auto;
   background: rgba(255, 255, 255, 0.5);
+}
+
+.player-deck {
+  height: 25vh;
+}
+
+.center-deck {
+  height: 30vh;
+}
+
+.game-info {
+  position: relative;
+  top: 1vh;
+  left: 1vh;
+  width: 7vh;
+  height: auto;
+}
+
+.token {
+  width: 7vh;
+  height: 7vh;
+  background: rgba(255, 0, 0, 0.5);
 }
