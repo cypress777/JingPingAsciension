@@ -10,21 +10,35 @@ class User(UserMixin, db.Model):
 
     id = db.Column(db.Integer,
                    primary_key=True)
+                   
     name = db.Column(db.String(256),
                      unique=True,
                      nullable=False)
+
     password = db.Column(db.String(256),
                          primary_key=False,
                          unique=False,
                          nullable=False)
+
     created_on = db.Column(db.DateTime,
                            index=False,
                            unique=False,
                            nullable=True)
+
     last_login = db.Column(db.DateTime,
                            index=False,
                            unique=False,
                            nullable=True)
+
+    win = db.Column(db.Integer,
+                    index=False,
+                    unique=False,
+                    nullable=True)
+
+    lose = db.Column(db.Integer,
+                     index=False,
+                     unique=False,
+                     nullable=True)
 
     def set_password(self, password):
         """Create hashed password."""

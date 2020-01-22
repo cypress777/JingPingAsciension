@@ -8,3 +8,25 @@
 #signout-button {
   min-width: 180px;
 }
+
+.header-placeholder {
+  z-index: -101;
+}
+
+.content-gameboard {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.dashboard-block {
+  width: 100vw;
+  height: 30vh;
+  margin: 2vw;
+  background: rgba(255, 255, 255, 0.5);
+}

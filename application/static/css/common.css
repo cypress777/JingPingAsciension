@@ -12,12 +12,16 @@ body {
 }
 
 header {
+  position: relative;
   width: 100vw;
   top: 0;
   left: 0;
   height: calc(20px + 10vw);
+  z-index: 101;
+}
+
+.main-header {
   background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
 }
 
 .header-placeholder {
@@ -134,7 +138,7 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .main-header {
+  header {
     height: 80px !important;
   }
 
@@ -173,7 +177,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  .main-header {
+  header {
     height: 140px !important;
   }
 
