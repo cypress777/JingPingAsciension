@@ -21,6 +21,7 @@
   padding: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
+  perspective: 500px;
 }
 
 .deck-wrapper {
@@ -53,11 +54,25 @@
   background: rgba(255, 0, 0, 0.5);
 }
 
-.open-cards {
+.cards {
+  display: flex;
+  flex-wrap: nowrap;
   width: 85vw;
   height: 22vh;
   background: dodgerblue;
   margin: auto auto;
+}
+
+.player-deck > .cards > .on-hand {
+  width: 50%;
+  height: 22vh;
+  background: yellow;
+}
+
+.player-deck > .cards > .open {
+  width: 50%;
+  height: 22vh;
+  background: yellowgreen;
 }
 
 @media (min-width: 1800px) {
@@ -71,7 +86,7 @@
     width: 40px !important;
   }
 
-  .open-cards {
+  .cards {
     width: calc(90vw - 40px) !important;
   }
 }
