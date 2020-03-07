@@ -15,4 +15,5 @@ def Welcome():
 @main_bp.route('/game', methods=['GET', 'POST'])
 @login_required
 def Game():
-  return render_template('game.html', welcome_info='Welcome Back', username=current_user.name, title='Game')
+  return render_template('game.html', welcome_info='Welcome Back', username=current_user.name, title='Game',
+                        ngApp='gameApp', ngCtrl='gameCtrl')
