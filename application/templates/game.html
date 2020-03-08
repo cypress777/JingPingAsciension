@@ -35,8 +35,11 @@
                 </div>
             </div>
             <div class="cards">
-                <div ng-repeat="card in availCards()">
-
+                <div class="open">
+                    <div ng-repeat="card in centerCards" ng-click="drawCard(card)" ng-class="{avail: card.avail}" ng-if="card.avail">
+                        <div class="card-name">{a card.name a}</div>
+                        <div class="card-description">{a card.description a}</div>
+                    </div>
                 </div>
             </div>
         </div>

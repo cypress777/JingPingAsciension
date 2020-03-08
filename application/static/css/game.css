@@ -72,7 +72,24 @@
 .player-deck > .cards > .open {
   width: 50%;
   height: 22vh;
+  display: flex;
+  flex-wrap: nowrap;
   background: yellowgreen;
+}
+
+.center-deck > .cards > .open {
+  width: 100%;
+  height: 22vh;
+  display: flex;
+  flex-wrap: nowrap;
+  background: yellowgreen;
+}
+
+.open > .avail {
+  width: 10%;
+  height: 90%;
+  color: white;
+  background: black;
 }
 
 @media (min-width: 1800px) {
